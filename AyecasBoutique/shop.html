@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container{
+	height:100%;
+	width:100%;
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: antiquewhite;
+	font-family: 'Poppins', sans-serif;
+}
+.back{
+    width: 80%;
+    height: 50%;
+}
+*{
+	box-sizing: border-box;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+nav{
+	width: 100%;
+	box-shadow: 2px 2px 30px rgba(0, 0, 0,0.05);
+	z-index: 100;
+}
+.navigation{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 45px;
+}
+.logo img{
+	height: 100px;
+	width: 100px;
+	float: left;
+	border-radius: 100px;
+}
+.menu{
+	display: flex;
+}
+.menu li{
+	position: relative;
+	display: flex;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.menu li a{
+	color: black;
+	font-size: 16px;
+	text-align: center;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+li a:hover {
+    color: green; /* Change color as desired */
+}
+
+a{
+	width: 120px;
+}
+
+svg{
+	width: 30px;
+}
+
+.icon{
+	position: relative;
+}
+.icon span{
+	position: absolute;
+	display: flex;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	font-size: 10px;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+}
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+
+.list .item {
+    text-align: center;
+    border-radius: 8px;
+    background-color: transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+.item:hover {
+    border-radius: 3%;
+    background-color: #9DC183;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+    transition: .3s;
+}
+
+.list .item img {
+    width: 200px; /* Fixed width for images */
+    height: 300px; /* Fixed height for images */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.list .item img:hover {
+    transform: scale(1.1);
+}
+
+.list .item .title {
+    color: #727272;
+    font-weight: 600;
+}
+
+.list .item .price {
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 10px;
+}
+
+.list .item input {
+    padding: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.list .item button {
+    background-color: #1C1F25;
+    color: #fff;
+    width: 50%;
+    border-radius: 5%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.list .item button:hover {
+    background-color: antiquewhite;
+    color: black;
+    border: none;
+}
+
+.cart{
+    position: fixed;
+    top:0;
+    left: 100%;
+    width: 500px;
+    background-color: gray;
+    height: 100vh;
+    transition: 0.5s;
+}
+.check{
+    text-align: center;
+    padding-left: 50px;
+}
+.active .cart{
+    left: calc(100% - 500px);
+}
+.active .container{
+   transform: translateX(-200px);
+}
+.cart h1{
+    color:antiquewhite;
+    font-weight: 200;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.cart .checkOut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.cart .checkOut div{
+    background-color: #228B22;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cart .checkOut div:nth-child(2){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listCart li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+}
+.listCart li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listCart li img{
+    width: 90%;
+}
+.listCart li button{
+    background-color: #fff5;
+    border: none;
+}
+.listCart .count{
+    margin: 0 10px;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 400px; /* Adjust width as needed */
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input[type="number"],
+.modal-content select {
+    width: calc(100% - 10px); /* Adjust width as needed */
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.modal-content button.close {
+    background-color: #ddd;
+}
+
+.modal-content .paymentResult {
+    margin-top: 10px;
+}
+
+.modal-content .discounts {
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.close:hover,
+.close:focus {
+    background-color: #d32f2f;
+    outline: none;
+}
+
+#close{
+    background-color: red;
+}
+
+#verify{
+    background-color: green;
+}
+    </style>
+</head>
+<body class="">
+    
+    <div class="container">
+        <nav>
+			<div class="navigation">
+				<a class="logo">
+					<img src="./mylogo.png">
+				</a>
+				<ul class="menu">
+					<li><a href="./hometab.html">Home</a></li>
+                    <li><a href="./stock.html "> Add Stocks</a></li>
+					<li><a href="./shop.html">Shop</a></li>
+                    
+						<div class="icon">
+							<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+							</svg>
+							<span>0</span>
+						</div>
+
+				</ul>
+			</div>
+		</nav>
+
+        <h1><center>SHOP NOW!</center></h1>
+
+        <div class="list">
+          
+        </div>
+    </div>
+    <div class="cart">
+        <h1>Cart</h1>
+        <ul class="listCart">
+        </ul>
+        <div class="checkOut" >
+            <div onclick="checkOut()" class="check">Check Out
+                <div class="total"> 0</div>
+            </div>
+            <div class="close">Close</div>
+        </div>
+
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <h2>Payment</h2>
+                <label for="paymentAmount">Enter Payment Amount:</label>
+                <input type="number" id="paymentAmount" placeholder="Enter amount">
+                <div class="discounts">
+                    <label for="discountSelect">Select Discount:</label>
+                    <select id="discountSelect">
+                        <option value="0">No Discount</option>
+                        <option value="0.1">Student Discount (10%)</option>
+                        <option value="0.2">Senior Discount (20%)</option>
+                        <option value="0.3">PWD Discount (30%)</option>
+                    </select>
+                </div>
+                <button id="paymentButton">Submit Payment</button>
+                <p class="paymentResult"></p>
+                <button id="close" onclick="closeModal()" class="close"> Cancel</button>
+                <button id="verify" onclick="verify()" class="close"> Place Order</button>
+            </div>
+        </div>
+          
+        
+    </div>
+
+    <script>
+        
+    const show = document.querySelector('.icon');
+    const close = document.querySelector('.close');
+    let list = document.querySelector('.list');
+    let listCart = document.querySelector('.listCart');
+    let body = document.querySelector('body');
+    let total = document.querySelector('.total');
+    let quantity = document.querySelector('.quantity');
+    let iconCartSpan = document.querySelector('.icon span');
+    let paymentAmountInput = document.querySelector('#paymentAmount');
+    let paymentButton = document.querySelector('#paymentButton');
+    let paymentResult = document.querySelector('.paymentResult');
+    let paymentSubmitted = false;
+
+    show.addEventListener('click', () => {
+        body.classList.add('active');
+    });
+
+    close.addEventListener('click', () => {
+        body.classList.remove('active');
+    });
+
+    const defaultProducts = [
+        {
+            id: 1,
+            name: 'Boyfriend Jeans',
+            image: '../boyfriendjeans.jpg',
+            price: 400,
+            stocks: 20
+        },
+        {
+            id: 2,
+            name: 'Skinny Jeans',
+            image: '../skinnywomen.jpg',
+            price: 280,
+            stocks: 25
+        },
+        {
+            id: 3,
+            name: 'Ripped Jeans',
+            image: '../rippedwomen.jpg',
+            price: 490,
+            stocks: 18
+        },
+        {
+            id: 4,
+            name: 'High Waist Pants',
+            image: '../highwaist.jpg',
+            price: 580,
+            stocks: 23
+        },
+        {
+            id: 5,
+            name: 'Cargo Pants',
+            image: '../cargowomen.jpg',
+            price: 700,
+            stocks: 14
+        },
+        {
+            id: 6,
+            name: 'Flare Pants',
+            image: '../flarewomen.jpg',
+            price: 600,
+            stocks: 42
+        },
+        {
+            id: 7,
+            name: 'Plus Size Jeans',
+            image: '../plusripped.jpg',
+            price: 550,
+            stocks: 25
+        },
+        {
+            id: 8,
+            name: 'Cargo Pants',
+            image: '../cargomen.jpg',
+            price: 450,
+            stocks: 16
+        },
+        {
+            id: 9,
+            name: 'Loose Jeans',
+            image: '../loosemen.jpg',
+            price: 650,
+            stocks: 18
+        },
+        {
+            id: 10,
+            name: 'Regular Jeans',
+            image: '../regularmen.jpg',
+            price: 500,
+            stocks: 12
+        },
+        {
+            id: 11,
+            name: 'Ripped Jeans',
+            image: '../rippedmen.jpg',
+            price: 380,
+            stocks: 21
+        },
+        {
+            id: 12,
+            name: 'Skinny jeans',
+            image: '../skinnyjeans.jpg',
+            price: 520,
+            stocks: 17
+        },
+        // T-shirt
+        {
+            id: 13,
+            name: 'V-neck Shirt',
+            image: '../vneckwomen.jpg',
+            price: 200,
+            stocks: 11
+        },
+        {
+            id: 14,
+            name: 'Turtle Neck',
+            image: '../turtlewomen.jpg',
+            price: 280,
+            stocks: 25
+        },
+        {
+            id: 15,
+            name: 'Scoop Shirt',
+            image: '../scoopwomen.jpg',
+            price: 250,
+            stocks: 9
+        },
+        {
+            id: 16,
+            name: 'Round Neck Shirt',
+            image: '../roundwomen.jpg',
+            price: 200,
+            stocks: 24
+        },
+        {
+            id: 17,
+            name: 'Polo Shirt',
+            image: '../polowomen.jpg',
+            price: 400,
+            stocks: 16
+        },
+        {
+            id: 18,
+            name: 'Baseball Shirt',
+            image: '../baseballwomen.jpg',
+            price: 600,
+            stocks: 32
+        },
+        {
+            id: 19,
+            name: 'Round Neck Shirt',
+            image: '../roundmen.jpg',
+            price: 150,
+            stocks: 80
+        },
+        {
+            id: 20,
+            name: 'V-neck Shirt',
+            image: '../vneckmen.jpg',
+            price: 280,
+            stocks: 95
+        },
+        {
+            id: 21,
+            name: 'Turtle Neck Shirt',
+            image: '../turtlemen.jpg',
+            price: 500,
+            stocks: 15
+        },
+        {
+            id: 22,
+            name: 'Polo Shirt',
+            image: '../poloshirtmen.jpg',
+            price: 700,
+            stocks: 50
+        },
+        //sando
+        {
+            id: 23,
+            name: 'Chain Top',
+            image: '../chainwomen.jpg',
+            price: 400,
+            stocks: 25
+        },
+        {
+            id: 24,
+            name: 'Nike Dri-fit',
+            image: '../drifitmen.jpg',
+            price: 600,
+            stocks: 45
+        },
+        {
+            id: 25,
+            name: 'Muscle Tee Sando',
+            image: '../teemen.jpg',
+            price: 290,
+            stocks: 23
+        },
+        {
+            id: 26,
+            name: 'Men Sando',
+            image: '../mensando.jpg',
+            price: 450,
+            stocks: 27
+        },
+        {
+            id: 27,
+            name: 'Ribbed Crop Top',
+            image: '../Ribbed.jpg',
+            price: 250,
+            stocks: 60
+        },
+        {
+            id: 28,
+            name: 'Sport Sando',
+            image: '../sportsmen.jpg',
+            price: 300,
+            stocks: 30
+        },
+        {
+            id: 29,
+            name: 'Women Sport Top',
+            image: '../sportswomen.jpg',
+            price: 500,
+            stocks: 90
+        },
+        //perfume
+        {
+            id: 30,
+            name: 'Armani Women',
+            image: '../armaniwomen.jpg',
+            price: 800,
+            stocks: 45
+        },
+        {
+            id: 31,
+            name: 'Armani Men',
+            image: '../armanimen.jpg',
+            price: 600,
+            stocks: 65
+        },
+        {
+            id: 32,
+            name: 'Coach',
+            image: '../coachwomen.jpg',
+            price: 1000,
+            stocks: 29
+        },
+        {
+            id: 33,
+            name: 'Coach Men',
+            image: '../coachmen.jpg',
+            price: 300,
+            stocks: 47
+        },
+        {
+            id: 34,
+            name: 'Dolce & Gabbana',
+            image: '../dolcewomen.jpg',
+            price: 1500,
+            stocks: 2
+        },
+        {
+            id: 35,
+            name: 'Dolce & Gabbana',
+            image: '../dolcemen.jpg',
+            price: 1200,
+            stocks: 26
+        },
+        {
+            id: 36,
+            name: 'Gucci',
+            image: '../gucciwomen.jpg',
+            price: 1400,
+            stocks: 4
+        },
+        {
+            id: 37,
+            name: 'Gucci for Men',
+            image: '../guccimen.jpg',
+            price: 1450,
+            stocks: 28
+        },
+        {
+            id: 38,
+            name: 'Polo Black',
+            image: '../polomen.jpg',
+            price: 1700,
+            stocks: 14
+        },
+        {
+            id: 39,
+            name: 'Prada',
+            image: '../pradawomen.jpg',
+            price: 980,
+            stocks: 10
+        },
+        {
+            id: 40,
+            name: 'YSL',
+            image: '../yslwomen.jpg',
+            price: 2000,
+            stocks: 16
+        },
+        {
+            id: 41,
+            name: 'Versace',
+            image: '../versacemen.jpg',
+            price: 520,
+            stocks: 11
+        },
+        //toys
+        {
+            id: 42,
+            name: 'Barbie Doll',
+            image: '../barbie.jpg',
+            price: 300,
+            stocks: 25
+        },
+        {
+            id: 43,
+            name: 'Kitchen Set Toys',
+            image: '../kitchen.jpg',
+            price: 1000,
+            stocks: 36
+        },
+        {
+            id: 44,
+            name: 'Lego Toys',
+            image: '../lego.jpg',
+            price: 1500,
+            stocks: 31
+        },
+        {
+            id: 45,
+            name: 'Robot',
+            image: '../Robot.jpg',
+            price: 5000,
+            stocks: 47
+        },
+        {
+            id: 46,
+            name: 'Remote Control Car',
+            image: '../Remote.jpg',
+            price: 1200,
+            stocks: 62
+        },
+        {
+            id: 47,
+            name: 'Toy Gun',
+            image: '../toygun.jpg',
+            price: 300,
+            stocks: 21
+        },
+        {
+            id: 48,
+            name: 'Basket Ball',
+            image: '../ball.jpg',
+            price: 900,
+            stocks: 42
+        },
+    ];
+    
+
+    let products = JSON.parse(localStorage.getItem('products')) || defaultProducts;
+    localStorage.setItem('products', JSON.stringify(products));
+
+    let listCarts = [];
+
+    
+    function initApp() {
+        const categories = [
+            { name: 'Jeans', range: [1, 12] },
+            { name: 'T-Shirts', range: [13, 22] },
+            { name: 'Sando', range: [23, 29] },
+            { name: 'Perfume', range: [30, 41] },
+            { name: 'Toys', range: [42, 48] },
+        ];
+    
+        categories.forEach(category => {
+            const heading = document.createElement('h2');
+            heading.textContent = category.name;
+            list.appendChild(heading);
+    
+            products.forEach((product, key) => {
+                if (product.id >= category.range[0] && product.id <= category.range[1]) {
+                    let newDiv = document.createElement('div');
+                    newDiv.classList.add('item');
+                    newDiv.setAttribute('data-index', key); 
+                    newDiv.innerHTML = `
+                        <img src="image/${product.image}">
+                        <div class="title">${product.name}</div>
+                        <div class="price">${product.price.toLocaleString()}</div>
+                        <div class="stocks">Stocks: ${product.stocks}</div>
+                        <button onclick="addToCart(${key})"> Add To Cart </button>`;
+                    list.appendChild(newDiv);
+                }
+            });
+        });
+    }
+    
+    initApp();
+
+    function addToCart(key) {
+        if (products[key].stocks > 0) { 
+            if (listCarts[key] == null) {
+                listCarts[key] = JSON.parse(JSON.stringify(products[key]));
+                listCarts[key].quantity = 1;
+            } else {
+                listCarts[key].quantity++;
+            }
+            products[key].stocks--;
+            reloadCart();
+        } else {
+            alert('Sorry, this item is out of stock.');
+        }
+    }
+
+    function reloadCart() {
+        listCart.innerHTML = '';
+        let count = 0;
+        let totalPrice = 0;
+        listCarts.forEach((value, key) => {
+            if (value != null) {
+                totalPrice += value.price * value.quantity; 
+                count += value.quantity;
+                let newDiv = document.createElement('li');
+                newDiv.innerHTML = `
+                    <div><img src="image/${value.image}"/></div>
+                    <div>${value.name}</div>
+                    <div>${(value.price * value.quantity).toLocaleString()}</div> <!-- Show price based on quantity -->
+                    <div>
+                        <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                        <div class="count">${value.quantity}</div>
+                        <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                    </div>`;
+                listCart.appendChild(newDiv);
+            }
+        });
+        total.innerText = totalPrice.toLocaleString();
+        iconCartSpan.innerHTML = count;
+
+        products.forEach((product, index) => {
+            const stockElement = document.querySelector(`.item[data-index="${index}"] .stocks`);
+            if (stockElement) {
+                stockElement.textContent = `Stocks: ${product.stocks}`;
+            }
+        });
+    }
+
+    function restoreStock() {
+        listCarts.forEach((item, index) => {
+            if (item != null) {
+                products[index].stocks += item.quantity; 
+            }
+        });
+        reloadCart();
+    }
+
+    function clearCart() {
+        listCarts = [];
+        reloadCart();
+    }
+
+    function checkOut() {
+        paymentModal.style.display = 'block';
+    }
+
+    function changeQuantity(key, quantity) {
+        if (quantity == 0) {
+            products[key].stocks += listCarts[key].quantity; 
+            delete listCarts[key];
+        } else {
+            const quantityChange = quantity - listCarts[key].quantity;
+            listCarts[key].quantity = quantity;
+            products[key].stocks -= quantityChange; 
+        }
+        reloadCart();
+    }
+
+function handlePayment() {
+    const paymentAmount = parseFloat(paymentAmountInput.value);
+    const totalAmount = parseFloat(total.innerText.replace(/,/g, ''));
+
+    if (isNaN(paymentAmount) || paymentAmount <= 0) {
+        paymentResult.innerText = 'Please enter a valid payment amount.';
+        paymentSubmitted = false;
+        return;
+    }
+
+    const discountSelect = document.getElementById('discountSelect');
+    const discount = parseFloat(discountSelect.value);
+
+    const discountedTotal = totalAmount * (1 - discount);
+    const change = paymentAmount - discountedTotal;
+
+    const receiptContent = `
+        Original Total: ${totalAmount.toLocaleString()}
+        Discount: ${discount * 100}%
+        Discounted Amount: ${(totalAmount - discountedTotal).toLocaleString()}
+        Total Amount: ${discountedTotal.toLocaleString()}
+        Payment Amount: ${paymentAmount.toLocaleString()}
+        Change: ${change.toLocaleString()}
+    `;
+
+    paymentResult.innerText = receiptContent;
+
+    if (change < 0) {
+        paymentResult.innerText += `\nInsufficient payment. You need ${(-change).toLocaleString()} more.`;
+        paymentSubmitted = false;
+    } else {
+        paymentResult.innerText += '\nPayment successful.';
+        paymentSubmitted = true;
+        clearCart();
+    }
+}
+
+paymentButton.addEventListener('click', handlePayment);
+
+    window.addEventListener('click', (event) => {
+        if (event.target == paymentModal) {
+            restoreStock();
+            paymentModal.style.display = 'none';
+        }
+    });
+
+    function closeModal() {
+        paymentModal.style.display = 'none'; 
+       
+        paymentAmountInput.value = '';
+        paymentResult.innerText = '';
+        alert('Are you sure you want to cancel?');
+        returnStocks();
+    }
+
+    function verify() {
+        if (!paymentSubmitted) {
+            paymentResult.innerText = 'Please submit payment first.';
+        } else {
+            paymentModal.style.display = 'none'; 
+            paymentAmountInput.value = '';
+            paymentResult.innerText = '';
+            alert('Order Successfully Placed!');
+            paymentSubmitted = false; 
+        }
+    }
+    
+    </script>
+</body>
+</html>

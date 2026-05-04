@@ -1,0 +1,336 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body {
+  background: #0d0d0d;
+  color: #e5e7eb;
+}
+
+/* HIDE WRONG HEAD TAGS (your .tags in head) */
+head .tags {
+  display: none;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  background: transparent;
+}
+
+header h1 {
+  color: #00ffcc;
+  font-size: 22px;
+}
+
+nav a {
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00ffcc;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 20px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 450px;
+}
+
+.hero-text h2 {
+  font-size: 28px;
+}
+
+.hero-text h3 {
+  font-size: 40px;
+  color: #00ffcc;
+  margin: 10px 0;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  color: #aaa;
+}
+
+/* IMAGE (GLOW EFFECT) */
+.hero-image img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid #00ffcc;
+
+  box-shadow:
+    0 0 25px #00ffcc,
+    0 0 60px rgba(0,255,204,0.4);
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 25px;
+  background: #00ffcc;
+  color: #000;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00ddb3;
+}
+
+.btn-outline {
+  padding: 10px 25px;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: #00ffcc;
+  color: #000;
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* ABOUT */
+.about p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  color: #bbb;
+}
+
+/* SKILLS */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skill {
+  background: rgba(0,255,204,0.1);
+  border: 1px solid rgba(0,255,204,0.3);
+  color: #00ffcc;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+/* PROJECTS */
+#projects {
+  background: transparent;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0,255,204,0.3);
+}
+
+.project-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* PROJECT BUTTON */
+.btn-project {
+  padding: 10px 20px;
+  background: #00ffcc;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  width: fit-content;
+  margin-top: auto;
+}
+
+.btn-project:hover {
+  background: #00ddb3;
+}
+
+/* CONTACT */
+.contact p {
+  margin: 10px 0;
+  color: #bbb;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* TAGS (kept but styled better) */
+.tags {
+  margin-top: 10px;
+}
+
+.tags span {
+  background: rgba(255,255,255,0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== NAV ACTIVE LINK ===== */
+nav a.active {
+  color: #00ffcc;
+  border-bottom: 2px solid #00ffcc;
+  padding-bottom: 3px;
+}
+
+/* ===== HERO TEXT ANIMATION ===== */
+.hero-text h2,
+.hero-text h3,
+.hero-text p {
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+.hero-text h2 { animation-delay: 0.2s; }
+.hero-text h3 { animation-delay: 0.4s; }
+.hero-text p  { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* ===== BUTTON HOVER GLOW ===== */
+.btn, .btn-project {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after, .btn-project::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  left: 0;
+  top: 0;
+  transition: 0.3s;
+}
+
+.btn:hover::after,
+.btn-project:hover::after {
+  width: 100%;
+}
